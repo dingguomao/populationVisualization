@@ -1,0 +1,164 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>index</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<link rel="stylesheet" href="css/comon0.css">
+<link rel="stylesheet" type="text/css" href="./css/button.css" />
+
+</head>
+	<script>
+	$(window).load(function(){  
+             $(".loading").fadeOut()
+            })  
+			
+/****/
+$(document).ready(function(){
+	var whei=$(window).width()
+	$("html").css({fontSize:whei/20})
+	$(window).resize(function(){
+		var whei=$(window).width()
+	 $("html").css({fontSize:whei/20})
+});
+	});
+	</script>
+	
+	<script type="text/javascript" src="js/echarts.min.js"></script> 
+	<script language="JavaScript" src="js/js.js"></script> 	
+<body>
+<style>
+#refresh{
+  width:100px;
+  height:36px;
+  line-height:36px;
+  color:#fff;
+  background-color:transparent;
+    border-radius:10px;
+  
+}
+.head a{ color:#fff;  font-size: 25px; line-height:30px;}
+.head a img{ width:25px; display: inline-block; vertical-align: middle; margin-right: .2rem}
+</style>
+<div class="canvas" style="opacity: .2">
+	<iframe frameborder="0" src="js/index.html" style="width: 100%; height: 100%"></iframe>
+	</div>
+<div class="loading">
+  <div class="loadbox"> <img src="picture/loading.gif"> 页面加载中... </div>
+</div>
+<div class="head">
+  <button id="refresh" onclick="replace()">全国数据</button>
+  <button id="back">返回全国</button>
+  
+
+  <div style="text-align:center;margin-bottom: 50px;"><a>大数据可视化展板通用模板</a></div>
+  <div class="weather"><!--<img src="picture/weather.png"><span>多云转小雨</span>--><span id="showTime"></span></div>
+	
+	<script>
+var t = null;
+    t = setTimeout(time,1000);//開始运行
+    function time()
+    {
+       clearTimeout(t);//清除定时器
+       dt = new Date();
+		var y=dt.getFullYear();
+		var mt=dt.getMonth()+1;
+		var day=dt.getDate();
+       var h=dt.getHours();//获取时
+       var m=dt.getMinutes();//获取分
+       var s=dt.getSeconds();//获取秒
+       document.getElementById("showTime").innerHTML = y+"年"+mt+"月"+day+"-"+h+"时"+m+"分"+s+"秒";
+       t = setTimeout(time,1000); //设定定时器，循环运行     
+    } 
+
+</script>
+	
+	
+</div>
+<div class="mainbox">
+  <ul class="clearfix">
+    <li>
+      <div class="boxall" style="height: 3.2rem; border-radius:50px">
+        <div class="alltitle">人口排行（前七名）</div>
+        <div class="allnav" id="echart1"></div>
+        <div class="boxfoot"></div>
+      </div>
+      <div class="boxall" style="height: 3.2rem; border-radius:50px">
+        <div class="alltitle">2014-2020人口变化（总人口）</div>
+        <div class="allnav" id="echart2"></div>
+        <div class="boxfoot"></div>
+      </div>
+      <div class="boxall" style="height: 280px; border-radius:50px">
+      <div class="alltitle">第七次人口普查</div>
+        <div style="height:100%; width: 100%;">
+		  	<div class="sy" id="fb1"></div>
+				<div class="sy" id="fb2"></div>
+				<div class="sy" id="fb3"></div>
+		  </div>
+        <div class="boxfoot">
+			
+		  </div>
+      </div>
+    </li>
+    <li>
+      <div class="bar" style=" border-radius:50px">
+        <div class="barbox" style=" border-radius:50px">
+          <ul class="clearfix" >
+            <li class="pulll_left counter">1411778724</li>
+            <li class="pulll_left counter">1337376754</li>
+          </ul>
+        </div>
+        <div class="barbox2">
+          <ul class="clearfix">
+            <li class="pulll_left">第七次人口普查（总人口）</li>
+            <li class="pulll_left">第六次人口普查（总人口）</li>
+          </ul>
+        </div>
+      </div>
+      <div class="map">
+        <div class="map1"><img src="picture/lbx.png"></div>
+        <div class="map2"><img src="picture/jt.png"></div>
+        <div class="map3"><img src="picture/map.png"></div>
+        <div class="map4" id="map_1"></div>
+      </div>
+    </li>
+    <li id ="kmap">
+      
+          <div class="boxall" id="echart4" style="height:300px ; border-radius:50px">
+            
+        <!-- <div class="alltitle" >模块标题样式</div> -->
+        <!-- <div class="allnav" ></div> -->
+        <div class="boxfoot" ></div>
+      </div>
+      <div class="boxall" style="height: 3.2rem; border-radius:50px">
+        <div class="alltitle">人口变化</div>
+        <div class="allnav" id="echart5"></div>
+        <div class="boxfoot"></div>
+      </div>
+      <div class="boxall" style="height: 3rem; border-radius:50px">
+        <div class="alltitle">受教育程度</div>
+        <div class="allnav" id="echart6"></div>
+        <div class="boxfoot"></div>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="back"></div>
+<!-- <iframe height="600px" width="1000px" src="./dongtai.html"></iframe>
+
+ -->
+ <script>
+    function replace()
+    {
+        window.location.reload();
+
+    }
+    </script>
+
+<script type="text/javascript" src="js/map/china.js"></script>
+
+<script type="text/javascript" src="js/map.js"></script> 
+
+
+</body>
+</html>
